@@ -12,8 +12,25 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
 }
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes(
+                "Main-Class": "ru.nsu.fit.akitov.selfnetcopy.Main",
+        )
+    }
+    from {
+        configurations.compileClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
