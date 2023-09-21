@@ -17,7 +17,7 @@ public record Arguments(Path fileName, InetAddress serverAddress, int serverPort
         try {
             Path path = Path.of(args[0]);
             if (!Files.exists(path)) {
-                throw new IllegalArgumentException("file does not exist");
+//                throw new IllegalArgumentException("file does not exist");
             }
             InetAddress address = InetAddress.getByName(args[1]);
             int port = Integer.parseInt(args[2]);
