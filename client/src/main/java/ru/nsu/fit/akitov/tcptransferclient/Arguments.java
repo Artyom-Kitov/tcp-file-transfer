@@ -1,36 +1,66 @@
 package ru.nsu.fit.akitov.tcptransferclient;
 
 import lombok.Builder;
+import org.apache.commons.cli.*;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 
 @Builder
 public record Arguments(Path fileName, InetAddress serverAddress, int serverPort) {
 
-    public static Arguments buildFromArray(String[] args) {
-        if (args.length != 3) {
-            throw new IllegalArgumentException("wrong number of parameters");
-        }
+    public static Arguments buildFromArray(String[] args) throws ParseException {
+        Options options = new Options();
+
+        Option filePathOption = Option.builder()
+                .argName("f")
+                .longOpt("file")
+                .desc("file to upload")
+                .hasArg(true)
+                .required()
+                .build();
+
+        Option serverAddressOption = Option.builder()
+                .argName("h")
+                .longOpt("host")
+                .desc("server address")
+                .hasArg(true)
+                .required()
+                .build();
+
+        Option serverPortOption = Option.builder()
+                .argName("p")
+                .longOpt("port")
+                .desc("server port")
+                .hasArg(true)
+                .required()
+                .build();
+
+        options.addOption(filePathOption)
+                .addOption(serverAddressOption)
+                .addOption(serverPortOption);
+
+        CommandLineParser parser = new DefaultParser();
+        CommandLine cmd = parser.parse(options, args);
+
+        Path path = Path.of(cmd.getOptionValue("file"));
+        InetAddress serverAddress;
+        int serverPort;
         try {
-            Path path = Path.of(args[0]);
-            if (!Files.exists(path)) {
-//                throw new IllegalArgumentException("file does not exist");
-            }
-            InetAddress address = InetAddress.getByName(args[1]);
-            int port = Integer.parseInt(args[2]);
-            return Arguments.builder()
-                    .fileName(path)
-                    .serverAddress(address)
-                    .serverPort(port)
-                    .build();
-        } catch (UnknownHostException e) {
-            throw new IllegalArgumentException("invalid server address");
+            serverAddress = InetAddress.getByName(cmd.getOptionValue("host"));
+            serverPort = Integer.parseInt(cmd.getOptionValue("port"));
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("invalid server port");
+            throw new ParseException("invalid server port");
+        } catch (UnknownHostException e) {
+            throw new ParseException("invalid server address");
         }
+
+        return Arguments.builder()
+                .fileName(path)
+                .serverAddress(serverAddress)
+                .serverPort(serverPort)
+                .build();
     }
 
 }
