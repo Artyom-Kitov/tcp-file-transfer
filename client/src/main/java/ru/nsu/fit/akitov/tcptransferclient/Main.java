@@ -3,8 +3,8 @@ package ru.nsu.fit.akitov.tcptransferclient;
 public class Main {
 
     public static void main(String[] args) {
-        Client client = new Client(args);
-        client.start();
+        Runnable client = new Client(args);
+        client.run();
     }
 
 }

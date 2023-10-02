@@ -4,15 +4,14 @@ import lombok.extern.log4j.Log4j2;
 
 import java.io.*;
 import java.net.Socket;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @Log4j2
 public class ClientHandler implements Runnable {
 
     private static final Path UPLOAD_PATH = Path.of("uploads");
+    private static final int SPEED_MEASURE_INTERVAL_MILLIS = 3000;
     private static final int BUFFER_SIZE = 8192;
 
     private final Socket socket;
@@ -93,20 +92,36 @@ public class ClientHandler implements Runnable {
     }
 
     private void loadFileContent(Path upload, InputStream stream, long bytesExpected) throws IOException {
-        long bytesReceived = 0;
+        long totalBytesReceived = 0;
+        long start = System.currentTimeMillis();
+        long intervalTimestamp = System.currentTimeMillis();
+        long intervalBytesReceived = 0;
+
         try (FileOutputStream output = new FileOutputStream(upload.toFile())) {
             byte[] buffer = new byte[BUFFER_SIZE];
             for (int size = stream.read(buffer); size != -1; size = stream.read(buffer)) {
                 output.write(buffer, 0, size);
-                bytesReceived += size;
+                totalBytesReceived += size;
+                intervalBytesReceived += size;
+
+                long deltaT = System.currentTimeMillis() - intervalTimestamp;
+                if (deltaT >= SPEED_MEASURE_INTERVAL_MILLIS) {
+                    log.info(host + " current speed: " + intervalBytesReceived * 1000 / deltaT + " bytes/s");
+                    intervalBytesReceived = 0;
+                    intervalTimestamp = System.currentTimeMillis();
+                }
             }
-            if (bytesReceived != bytesExpected) {
-                throw new IOException(host + " bytes expected: " + bytesExpected + ", bytes received: " + bytesReceived);
+            if (totalBytesReceived != bytesExpected) {
+                throw new IOException(host + " bytes expected: " + bytesExpected + ", bytes received: " + totalBytesReceived);
             }
         } catch (IOException e) {
             Files.delete(upload);
             log.error(host + ": " + e.getMessage());
+            return;
         }
+
+        long elapsedMillis = System.currentTimeMillis() - start;
+        log.info(host + " average speed: " + totalBytesReceived * 1000 / elapsedMillis + " bytes/s");
     }
 
 }

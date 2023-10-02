@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 @Log4j2
-public class Client {
+public class Client implements Runnable {
 
     private static final int BUFFER_SIZE = 8192;
 
@@ -20,7 +20,8 @@ public class Client {
         this.args = args;
     }
 
-    public void start() {
+    @Override
+    public void run() {
         Arguments arguments;
         try {
             arguments = Arguments.buildFromArray(args);

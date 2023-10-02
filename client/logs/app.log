@@ -2,3 +2,25 @@
 2023-10-02 14:49:46,658 INFO r.n.f.a.t.Client [main] disconnected from 26.140.39.151
 2023-10-02 14:50:18,684 INFO r.n.f.a.t.Client [main] connected to 26.140.39.151
 2023-10-02 14:50:18,720 INFO r.n.f.a.t.Client [main] disconnected from 26.140.39.151
+2023-10-02 15:13:03,247 INFO r.n.f.a.t.Client [main] connected to 26.140.39.151
+2023-10-02 15:13:03,271 INFO r.n.f.a.t.Client [main] upload successful
+2023-10-02 15:13:03,282 INFO r.n.f.a.t.Client [main] disconnected from 26.140.39.151
+2023-10-02 15:13:59,108 INFO r.n.f.a.t.Client [main] connected to 26.140.39.151
+2023-10-02 15:13:59,123 INFO r.n.f.a.t.Client [main] upload successful
+2023-10-02 15:13:59,126 INFO r.n.f.a.t.Client [main] disconnected from 26.140.39.151
+2023-10-02 15:14:10,405 INFO r.n.f.a.t.Client [main] connected to 26.140.39.151
+2023-10-02 15:14:10,418 INFO r.n.f.a.t.Client [main] upload successful
+2023-10-02 15:14:10,420 INFO r.n.f.a.t.Client [main] disconnected from 26.140.39.151
+2023-10-02 15:14:19,439 INFO r.n.f.a.t.Client [main] connected to 26.140.39.151
+2023-10-02 15:14:19,455 INFO r.n.f.a.t.Client [main] upload successful
+2023-10-02 15:14:19,457 INFO r.n.f.a.t.Client [main] disconnected from 26.140.39.151
+2023-10-02 15:15:07,319 INFO r.n.f.a.t.Client [main] connected to 26.140.39.151
+2023-10-02 15:15:07,338 INFO r.n.f.a.t.Client [main] upload successful
+2023-10-02 15:15:07,340 INFO r.n.f.a.t.Client [main] disconnected from 26.140.39.151
+2023-10-02 15:23:24,124 INFO r.n.f.a.t.Client [main] connected to 26.140.39.151
+2023-10-02 15:23:33,572 INFO r.n.f.a.t.Client [main] upload successful
+2023-10-02 15:23:33,576 INFO r.n.f.a.t.Client [main] disconnected from 26.140.39.151
+2023-10-02 15:26:51,339 INFO r.n.f.a.t.Client [main] connected to 26.140.39.151
+2023-10-02 15:27:01,508 INFO r.n.f.a.t.Client [main] upload successful
+2023-10-02 15:27:01,509 INFO r.n.f.a.t.Client [main] disconnected from 26.140.39.151
+2023-10-02 15:27:22,372 ERROR r.n.f.a.t.Client [main] Connection refused: connect
