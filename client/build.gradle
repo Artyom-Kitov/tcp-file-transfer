@@ -33,7 +33,7 @@ test {
 jar {
     manifest {
         attributes(
-                "Main-Class": "ru.nsu.fit.akitov.selfnetcopy.Main",
+                "Main-Class": "ru.nsu.fit.akitov.tcptransferclient.Main",
         )
     }
     from {

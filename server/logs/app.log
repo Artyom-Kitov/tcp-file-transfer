@@ -102,3 +102,14 @@
 2023-10-02 15:27:01,611 INFO r.n.f.a.t.ClientHandler [Thread-1] 26.140.39.151 avg speed: 60723766 bytes/s
 2023-10-02 15:27:01,612 INFO r.n.f.a.t.ClientHandler [Thread-1] 26.140.39.151 dataspell-2023.2.2.exe successfully uploaded
 2023-10-02 15:27:01,615 INFO r.n.f.a.t.ClientHandler [Thread-1] 26.140.39.151 disconnected
+2023-10-02 15:43:24,011 INFO r.n.f.a.t.ConnectionListener [main] Started at 26.140.39.151:8080
+2023-10-02 15:47:39,061 INFO r.n.f.a.t.ClientHandler [Thread-0] 26.140.39.151 connected
+2023-10-02 15:47:39,101 INFO r.n.f.a.t.ClientHandler [Thread-0] 26.140.39.151 name=build.gradle, size=1014
+2023-10-02 15:47:39,130 INFO r.n.f.a.t.ClientHandler [Thread-0] 26.140.39.151 average speed: 202800 bytes/s
+2023-10-02 15:47:39,136 INFO r.n.f.a.t.ClientHandler [Thread-0] 26.140.39.151 build.gradle successfully uploaded
+2023-10-02 15:47:39,146 INFO r.n.f.a.t.ClientHandler [Thread-0] 26.140.39.151 disconnected
+2023-10-02 15:48:03,097 INFO r.n.f.a.t.ClientHandler [Thread-1] 26.140.39.151 connected
+2023-10-02 15:48:03,120 INFO r.n.f.a.t.ClientHandler [Thread-1] 26.140.39.151 name=gradlew, size=8070
+2023-10-02 15:48:03,131 INFO r.n.f.a.t.ClientHandler [Thread-1] 26.140.39.151 average speed: 807000 bytes/s
+2023-10-02 15:48:03,133 INFO r.n.f.a.t.ClientHandler [Thread-1] 26.140.39.151 gradlew successfully uploaded
+2023-10-02 15:48:03,136 INFO r.n.f.a.t.ClientHandler [Thread-1] 26.140.39.151 disconnected

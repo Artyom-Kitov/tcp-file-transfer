@@ -29,3 +29,17 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+jar {
+    manifest {
+        attributes(
+                "Main-Class": "ru.nsu.fit.akitov.tcptransferserver.Main",
+        )
+    }
+    from {
+        configurations.compileClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+}

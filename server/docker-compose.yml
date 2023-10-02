@@ -1,0 +1,9 @@
+version: '3'
+services:
+  tcp-transfer-server:
+    image: tcp-transfer-server:1.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
