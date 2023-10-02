@@ -36,7 +36,9 @@ public class Client {
             return;
         }
 
+        log.info("connected to " + socket.getInetAddress().getHostAddress());
         transfer(arguments.fileName());
+        log.info("disconnected from " + socket.getInetAddress().getHostAddress());
 
         try {
             socket.close();
@@ -51,6 +53,7 @@ public class Client {
             output.writeUTF(fileName.getFileName().toString());
             output.writeLong(Files.size(fileName));
             transferFileContent(fileName, output);
+            log.info("upload successful");
         } catch (IOException e) {
             log.error(e.getMessage());
         }

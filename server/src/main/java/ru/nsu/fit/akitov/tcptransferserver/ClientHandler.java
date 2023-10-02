@@ -15,15 +15,17 @@ public class ClientHandler implements Runnable {
     private static final Path UPLOAD_PATH = Path.of("uploads");
     private static final int BUFFER_SIZE = 8192;
 
-    Socket socket;
+    private final Socket socket;
+    private final String host;
 
     public ClientHandler(Socket socket) {
         this.socket = socket;
+        this.host = socket.getInetAddress().getHostAddress();
     }
 
     @Override
     public void run() {
-        log.info(socket.getInetAddress().getHostAddress() + " connected");
+        log.info(host + " connected");
         if (!resolveUploadDirectory()) {
             return;
         }
@@ -35,7 +37,7 @@ public class ClientHandler implements Runnable {
         } catch (IOException e) {
             log.error(e.getMessage());
         }
-        log.info(socket.getInetAddress().getHostAddress() + " disconnected");
+        log.info(host + " disconnected");
     }
 
     private boolean resolveUploadDirectory() {
@@ -81,24 +83,29 @@ public class ClientHandler implements Runnable {
             }
 
             long fileSize = stream.readLong();
-            log.info("name: " + fileName + ", size: " + fileSize);
+            log.info(host + " name=" + fileName + ", size=" + fileSize);
 
-            loadFileContent(upload, stream);
-            log.info(fileName + " from " + socket.getInetAddress().getHostAddress() + " successfully uploaded");
+            loadFileContent(upload, stream, fileSize);
+            log.info(host + " " + fileName + " successfully uploaded");
         } catch (IOException e) {
-            log.error(socket.getInetAddress().getHostAddress() + ": " + e.getMessage());
+            log.error(host + " " + e.getMessage());
         }
     }
 
-    private void loadFileContent(Path upload, InputStream stream) throws IOException {
+    private void loadFileContent(Path upload, InputStream stream, long bytesExpected) throws IOException {
+        long bytesReceived = 0;
         try (FileOutputStream output = new FileOutputStream(upload.toFile())) {
             byte[] buffer = new byte[BUFFER_SIZE];
             for (int size = stream.read(buffer); size != -1; size = stream.read(buffer)) {
                 output.write(buffer, 0, size);
+                bytesReceived += size;
+            }
+            if (bytesReceived != bytesExpected) {
+                throw new IOException(host + " bytes expected: " + bytesExpected + ", bytes received: " + bytesReceived);
             }
         } catch (IOException e) {
             Files.delete(upload);
-            log.error(e.getMessage());
+            log.error(host + ": " + e.getMessage());
         }
     }
 
