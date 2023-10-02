@@ -1,0 +1,30 @@
+2023-10-02 12:51:29,219 INFO r.n.f.a.t.ClientAcceptor [main] Started at 0.0.0.0:8080
+2023-10-02 12:52:48,923 INFO r.n.f.a.t.ClientAcceptor [main] Started at 0.0.0.0:8080
+2023-10-02 13:03:09,358 INFO r.n.f.a.t.ClientAcceptor [main] Started at 26.140.39.151:8080
+2023-10-02 13:04:02,221 INFO r.n.f.a.t.ClientAcceptor [main] 26.140.39.151 connected
+2023-10-02 13:04:02,249 INFO r.n.f.a.t.ClientHandler [Thread-0] name: gradlew, size: 8070
+2023-10-02 13:04:59,414 INFO r.n.f.a.t.ClientAcceptor [main] Started at 26.140.39.151:8080
+2023-10-02 13:05:42,920 INFO r.n.f.a.t.ClientHandler [Thread-0] 26.140.39.151 connected
+2023-10-02 13:05:42,941 INFO r.n.f.a.t.ClientHandler [Thread-0] name: gradlew, size: 8070
+2023-10-02 13:06:04,969 INFO r.n.f.a.t.ClientAcceptor [main] Started at 26.140.39.151:8080
+2023-10-02 13:06:39,616 INFO r.n.f.a.t.ClientHandler [Thread-0] 26.140.39.151 connected
+2023-10-02 13:06:39,639 INFO r.n.f.a.t.ClientHandler [Thread-0] name: gradlew, size: 8070
+2023-10-02 13:06:39,642 INFO r.n.f.a.t.ClientHandler [Thread-0] 26.140.39.151 disconnected
+2023-10-02 13:06:45,572 INFO r.n.f.a.t.ClientHandler [Thread-1] 26.140.39.151 connected
+2023-10-02 13:06:45,582 INFO r.n.f.a.t.ClientHandler [Thread-1] name: gradlew, size: 8070
+2023-10-02 13:06:45,585 INFO r.n.f.a.t.ClientHandler [Thread-1] 26.140.39.151 disconnected
+2023-10-02 13:07:17,052 INFO r.n.f.a.t.ClientHandler [Thread-2] 26.140.39.151 connected
+2023-10-02 13:07:17,056 INFO r.n.f.a.t.ClientHandler [Thread-2] name: gradlew, size: 8070
+2023-10-02 13:07:17,059 INFO r.n.f.a.t.ClientHandler [Thread-2] 26.140.39.151 disconnected
+2023-10-02 13:07:30,363 INFO r.n.f.a.t.ClientHandler [Thread-3] 26.140.39.151 connected
+2023-10-02 13:07:30,368 INFO r.n.f.a.t.ClientHandler [Thread-3] name: gradlew, size: 8070
+2023-10-02 13:07:30,370 INFO r.n.f.a.t.ClientHandler [Thread-3] 26.140.39.151 disconnected
+2023-10-02 13:07:32,582 INFO r.n.f.a.t.ClientHandler [Thread-4] 26.140.39.151 connected
+2023-10-02 13:07:32,589 INFO r.n.f.a.t.ClientHandler [Thread-4] name: gradlew, size: 8070
+2023-10-02 13:07:32,591 INFO r.n.f.a.t.ClientHandler [Thread-4] 26.140.39.151 disconnected
+2023-10-02 13:44:30,482 INFO r.n.f.a.t.ClientAcceptor [main] Started at 26.140.39.151:8080
+2023-10-02 13:45:05,648 INFO r.n.f.a.t.ClientHandler [Thread-0] 26.140.39.151 connected
+2023-10-02 13:45:05,668 INFO r.n.f.a.t.ClientHandler [Thread-0] name: gradlew, size: 8070
+2023-10-02 13:45:05,679 ERROR r.n.f.a.t.ClientHandler [Thread-0] Connection reset
+2023-10-02 13:45:05,681 INFO r.n.f.a.t.ClientHandler [Thread-0] gradlew from 26.140.39.151 successfully uploaded
+2023-10-02 13:45:05,685 INFO r.n.f.a.t.ClientHandler [Thread-0] 26.140.39.151 disconnected

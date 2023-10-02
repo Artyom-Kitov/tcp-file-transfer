@@ -3,15 +3,27 @@ plugins {
 }
 
 group = 'ru.nsu.fit.akitov.tcptransferserver'
-version = '1.0-SNAPSHOT'
+version = '1.0'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    /* JUnit */
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    /* Lombok */
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
+
+    /* Log4j */
+    implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
+
+    /* CLI */
+    implementation 'commons-cli:commons-cli:1.3.1'
 }
 
 test {
